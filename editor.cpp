@@ -3,7 +3,7 @@
 #include "editor.h"
 
 Editor::Editor() {
-	screenSurface = NULL;
+	ren = NULL;
 	window = NULL;
 	WINDOW_WIDTH = 1280;
 	WINDOW_HEIGHT = 720;
@@ -24,10 +24,16 @@ int Editor::init() {
 
 	if ( window == NULL ) 
 	{
+		std::cout<<"CreateWindow Error! SDL_Error: "<<SDL_GetError()<<std::endl;
 		return 0;
 	}
 
-	screenSurface = SDL_GetWindowSurface( window );
+	ren = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC );
+	if ( ren == NULL )
+	{
+		std::cout<<"CreateRenderer Error! SDL_Error: "<<SDL_GetError()<<std::endl;
+		return 0;
+	}
 
 	return 1;
 }
@@ -49,12 +55,13 @@ void Editor::loop() {
 			}
 
 			// Background Color
-			SDL_FillRect( screen, NULL, SDL_MapRGB( screen->format, 180, 65, 0));
+			SDL_SetRenderDrawColor( ren, 160, 0, 65, 255);
+			SDL_RenderFillRect( ren, NULL);
 
 			// Render Everything
-			timeline.Render( screenSurface );
+			//timeline.Render( screenSurface );
 
-			SDL_UpdateWindowSurface( window );
+			SDL_RenderPresent( ren );
 		}
 
 		SDL_DestroyWindow( window );

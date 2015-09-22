@@ -8,7 +8,7 @@
 
 class Editor {
 	private: 
-		SDL_Surface* screenSurface;
+		SDL_Renderer* ren;
 		SDL_Window* window;
 		SDL_Event event;
 		int WINDOW_WIDTH;
