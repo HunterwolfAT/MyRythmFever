@@ -11,7 +11,7 @@ class Timeline
 		int marker;	// The Position of the Marker, showing where you are in the song
 		int offset;	// Marker offset from left screen border to 0
 
-		SDL_Rect background;
+		SDL_Rect window;
 	public:
 		void Render( SDL_Renderer *ren );
 		void Init( int windowHeight );
