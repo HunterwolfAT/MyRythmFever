@@ -8,7 +8,8 @@ class Timeline
 	private:
 		int width;
 		int height;
-		int marker;
+		int marker;	// The Position of the Marker, showing where you are in the song
+		int offset;	// Marker offset from left screen border to 0
 
 		SDL_Rect background;
 	public:

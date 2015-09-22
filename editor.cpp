@@ -7,7 +7,6 @@ Editor::Editor() {
 	window = NULL;
 	WINDOW_WIDTH = 1280;
 	WINDOW_HEIGHT = 720;
-	timeline.Init( WINDOW_HEIGHT );
 }
 
 void Editor::test() {
@@ -35,6 +34,8 @@ int Editor::init() {
 		std::cout<<"CreateRenderer Error! SDL_Error: "<<SDL_GetError()<<std::endl;
 		return 0;
 	}
+
+	timeline.Init( WINDOW_HEIGHT );
 
 	return 1;
 }
