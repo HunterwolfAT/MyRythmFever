@@ -48,7 +48,12 @@ void Editor::loop() {
 				}
 			}
 
-			SDL_FillRect( screenSurface, NULL, SDL_MapRGB( screenSurface->format, 180, 65, 0));
+			// Background Color
+			SDL_FillRect( screen, NULL, SDL_MapRGB( screen->format, 180, 65, 0));
+
+			// Render Everything
+			timeline.Render( screenSurface );
+
 			SDL_UpdateWindowSurface( window );
 		}
 
