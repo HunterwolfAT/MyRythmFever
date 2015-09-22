@@ -50,6 +50,15 @@ void Editor::loop() {
 		{
 			while( SDL_PollEvent( &event ) != 0 )
 			{
+				if( event.type == SDL_KEYDOWN )
+				{
+					switch( event.key.keysym.sym )
+					{
+						case SDLK_ESCAPE:
+							running = false;
+							break;
+					}
+				}
 				if( event.type == SDL_QUIT ) 
 				{
 					running = false;

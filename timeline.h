@@ -14,7 +14,8 @@ class Timeline
 		SDL_Rect window;
 	public:
 		void Render( SDL_Renderer *ren );
-		void Init( int windowHeight );
+		void Init( int screenHeight );
+		void Update( int newMarkerPos );
 		//Timeline( int windowHeight );
 
 };

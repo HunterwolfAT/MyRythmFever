@@ -25,3 +25,8 @@ void Timeline::Render( SDL_Renderer *ren )
 	SDL_SetRenderDrawColor( ren, 0, 0, 0, 255);
 	SDL_RenderDrawLine( ren, marker + offset, window.y + 20, marker + offset, window.y + 80 );
 }
+
+void Timeline::Update( int newMarkerPos )
+{
+	marker = newMarkerPos;
+}
