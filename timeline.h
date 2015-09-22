@@ -5,10 +5,16 @@
 
 class Timeline
 {
-	
+	private:
+		int width;
+		int height;
+		int marker;
+
+		SDL_Rect background;
 	public:
-		void Render( SDL_Surface *screen );
-		Timeline();
+		void Render( SDL_Renderer *ren );
+		void Init( int windowHeight );
+		//Timeline( int windowHeight );
 
 };
 

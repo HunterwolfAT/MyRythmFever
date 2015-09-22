@@ -7,6 +7,7 @@ Editor::Editor() {
 	window = NULL;
 	WINDOW_WIDTH = 1280;
 	WINDOW_HEIGHT = 720;
+	timeline.Init( WINDOW_HEIGHT );
 }
 
 void Editor::test() {
@@ -59,7 +60,7 @@ void Editor::loop() {
 			SDL_RenderFillRect( ren, NULL);
 
 			// Render Everything
-			//timeline.Render( screenSurface );
+			timeline.Render( ren );
 
 			SDL_RenderPresent( ren );
 		}
