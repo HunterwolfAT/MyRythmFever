@@ -1,7 +1,7 @@
 #copy this file to ~/.config/fish/functions/ to autoload it at startup
 
 function debug
-	if g++ -o myRythmFever main.cpp editor.cpp -lSDL2
+	if make
 		echo "Compilation Done. Starting myRythmFever..."
 		./myRythmFever
 		echo "Done."
