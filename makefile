@@ -2,7 +2,7 @@
 # Written by Maximilian Siess, (c) 2015
 
 CC=g++
-CFLAGS=-lSDL2
+CFLAGS=-lSDL2 -lSDL_mixer
 #LDFLAGS=
 SOURCES=timeline.cpp objectmanager.cpp audioplayer.cpp editor.cpp main.cpp
 OBJECTS=$(SOURCES:.cpp=.o)

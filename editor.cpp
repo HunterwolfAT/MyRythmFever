@@ -8,7 +8,6 @@
  */
 int result = 0;
 int flags = MIX_INIT_MP3;
-Mix_Music *music = NULL;
 
 Editor::Editor() {
 	ren = NULL;
@@ -32,14 +31,14 @@ int Editor::init() {
 
 	if ( window == NULL ) 
 	{
-		std::cout<<"CreateWindow Error! SDL_Error: "<<SDL_GetError()<<std::endl;
+		std::cout<<"CreateWindow Error!"<<std::endl;
 		return 0;
 	}
 
 	ren = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC );
 	if ( ren == NULL )
 	{
-		std::cout<<"CreateRenderer Error! SDL_Error: "<<SDL_GetError()<<std::endl;
+		std::cout<<"CreateRenderer Error!"<<std::endl;
 		return 0;
 	}
 
@@ -50,13 +49,18 @@ int Editor::init() {
 	 */
 	if ( flags != ( result = Mix_Init( flags ) ) )
 	{
-		std::cout<<"Could not initialize Mixer (result: "<<result<<") SDL_Error: "<<SDL_GetError()<<std::endl;
+		std::cout<<"Could not initialize Mixer (result: "<<result<<")"<<std::endl;
 		return 0;
 	}
 
 	Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 640);
-	music = Mix_LoadMUS( "mrf_music.mp3" );
-	Mix_PlayMusic( music, 1 );
+	Mix_Music *music = Mix_LoadMUS( "mrf_music.ogg" );
+	if ( music == NULL )
+	{
+		std::cout<<"Could not load song!"<<std::endl;
+		return 0;
+	}
+	//Mix_PlayMusic( music, 1 );
 
 	return 1;
 }
@@ -97,6 +101,6 @@ void Editor::loop() {
 		}
 
 		SDL_DestroyWindow( window );
-		Mix_FreeMusic( music );
+		//Mix_FreeMusic( music );
 	}
 }
