@@ -1,0 +1,6 @@
+# Ignore the Music Files
+*.mp3
+*.ogg
+*.flac
+# Ignore the binary
+myRythmFever
