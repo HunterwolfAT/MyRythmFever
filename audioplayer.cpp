@@ -3,18 +3,22 @@
 AudioPlayer::AudioPlayer()
 {
 	result = 0;
-	flags = MIX_INIT_MP3;
+	flags = MIX_INIT_MP3|MIX_INIT_FLAC|MIX_INIT_OGG;
 	song = NULL;
 
 	if ( flags != ( result = Mix_Init( flags ) ) )
 	{
 		std::cout<<"Could not initialize Mixer (result: "<<result<<")"<<std::endl<<Mix_GetError()<<std::endl;
 	}
+	std::cout<<"SDL_Mixer Init successful."<<std::endl;
 }
 
 void AudioPlayer::LoadSong( const char* songtitle )
 {
-	Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 640);
+	if ( Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 640) )
+	{
+		std::cout<<"Couldn't open Audio Channel! SDL_Error: "<<Mix_GetError()<<std::endl;
+	}
 	song = Mix_LoadMUS( songtitle );
 	if ( song == NULL )
 	{

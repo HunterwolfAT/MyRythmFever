@@ -38,7 +38,7 @@ int Editor::init() {
 
 	timeline.Init( WINDOW_HEIGHT );
 
-	//audioplayer.LoadSong("song.ogg");
+	audioplayer.LoadSong("mrf_music.mp3");
 
 	return 1;
 }
@@ -49,6 +49,7 @@ void Editor::loop() {
 	{
 		std::cout<<"Editor Init Failed! SDL_Error: "<<SDL_GetError()<<std::endl;
 	} else {
+		std::cout<<"Editor Init Successful!"<<std::endl;
 		while ( running ) 
 		{
 			while( SDL_PollEvent( &event ) != 0 )
