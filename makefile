@@ -3,7 +3,7 @@
 
 CC=g++
 CFLAGS=-lSDL2 -lSDL_mixer
-#LDFLAGS=
+LDFLAGS=`sdl-config --libs`
 SOURCES=timeline.cpp objectmanager.cpp audioplayer.cpp editor.cpp main.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=myRythmFever
@@ -11,7 +11,7 @@ EXECUTABLE=myRythmFever
 all: $(SOURCES) $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(CFLAGS) $(OBJECTS) -o $@
+	$(CC) $(LDFLAGS) $(CFLAGS) $(OBJECTS) -o $@
 
 .cpp.o:
 	$(CC) $(CFLAGS) -c $< -o $@

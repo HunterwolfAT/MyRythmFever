@@ -2,19 +2,13 @@
 
 AudioPlayer::AudioPlayer()
 {
-	/*
-	 * This are temporary variables to test out SDL_Mixer
-	 */
 	result = 0;
 	flags = MIX_INIT_MP3;
 	song = NULL;
 
-	/*
-	 * Test SDL_Mixer
-	 */
 	if ( flags != ( result = Mix_Init( flags ) ) )
 	{
-		std::cout<<"Could not initialize Mixer (result: "<<result<<")"<<std::endl;
+		std::cout<<"Could not initialize Mixer (result: "<<result<<")"<<std::endl<<Mix_GetError()<<std::endl;
 	}
 }
 
@@ -24,8 +18,10 @@ void AudioPlayer::LoadSong( const char* songtitle )
 	song = Mix_LoadMUS( songtitle );
 	if ( song == NULL )
 	{
-		std::cout<<"Could not load song!"<<std::endl;
+		std::cout<<"Could not load song!"<<std::endl<<Mix_GetError()<<std::endl;
+		return;
 	}
+	std::cout<<"Loaded Song successfully!"<<std::endl;
 }
 
 void AudioPlayer::PlaySong()
