@@ -1,13 +1,7 @@
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_mixer.h>
 #include <iostream>
 #include "editor.h"
 
-/*
- * This are temporary variables to test out SDL_Mixer
- */
-int result = 0;
-int flags = MIX_INIT_MP3;
 
 Editor::Editor() {
 	ren = NULL;
@@ -43,24 +37,6 @@ int Editor::init() {
 	}
 
 	timeline.Init( WINDOW_HEIGHT );
-
-	/*
-	 * Test SDL_Mixer
-	 */
-	if ( flags != ( result = Mix_Init( flags ) ) )
-	{
-		std::cout<<"Could not initialize Mixer (result: "<<result<<")"<<std::endl;
-		return 0;
-	}
-
-	Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 640);
-	Mix_Music *music = Mix_LoadMUS( "mrf_music.ogg" );
-	if ( music == NULL )
-	{
-		std::cout<<"Could not load song!"<<std::endl;
-		return 0;
-	}
-	//Mix_PlayMusic( music, 1 );
 
 	return 1;
 }
@@ -101,6 +77,5 @@ void Editor::loop() {
 		}
 
 		SDL_DestroyWindow( window );
-		//Mix_FreeMusic( music );
 	}
 }
