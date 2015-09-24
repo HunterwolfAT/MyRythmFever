@@ -10,6 +10,10 @@ AudioPlayer::AudioPlayer()
 	{
 		std::cout<<"Could not initialize Mixer (result: "<<result<<")"<<std::endl<<Mix_GetError()<<std::endl;
 	}
+
+	// We dont use samples, so deallocate the default 8 channels...
+	Mix_AllocateChannels(0);
+
 	std::cout<<"SDL_Mixer Init successful."<<std::endl;
 }
 

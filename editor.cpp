@@ -38,7 +38,8 @@ int Editor::init() {
 
 	timeline.Init( WINDOW_HEIGHT );
 
-	audioplayer.LoadSong("mrf_music.mp3");
+	audioplayer.LoadSong("mrf_music.ogg");
+	audioplayer.PlaySong();
 
 	return 1;
 }
