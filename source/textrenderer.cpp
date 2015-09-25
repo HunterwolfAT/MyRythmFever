@@ -9,7 +9,7 @@ TextRenderer::TextRenderer()
 	{
 		std::cout<<"SDL_TTF was not initialized! SDL_ERROR: "<<TTF_GetError()<<std::endl;
 	} else {
-		ifont = TTF_OpenFont("img/font.ttf", 46);
+		ifont = TTF_OpenFont("img/font.ttf", 12);
 		if ( ifont == NULL )
 		{
 			std::cout<<"Font could not be loaded! SDL_ERROR: "<<TTF_GetError()<<std::endl;
