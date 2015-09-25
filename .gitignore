@@ -6,5 +6,5 @@
 # Ignore the binary
 myRythmFever
 # Ignore generated files
-#*.o
-#*.swp
+*.o
+*.swp
