@@ -1,8 +1,7 @@
 #include "timeline.h"
-#include <iostream>
 
 
-void Timeline::Init( int screenHeight, TTF_Font *ifont ) 
+void Timeline::Init( int screenHeight, TextRenderer* textren ) 
 {
 	width = 1280;
 	height = 100;
@@ -14,7 +13,7 @@ void Timeline::Init( int screenHeight, TTF_Font *ifont )
 	window.x = 0;
 	window.y = screenHeight - height;
 
-	font = ifont;
+	textrenderer = textren;
 }
 
 void Timeline::Render( SDL_Renderer *ren )

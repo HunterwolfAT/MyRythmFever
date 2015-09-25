@@ -5,13 +5,13 @@
 #include <iostream>
 
 #include "timeline.h"
+#include "textrenderer.h"
 
 class Interface{
 
 	private:
 		Timeline timeline;
-
-		TTF_Font *ifont;	// Interface
+		TextRenderer *textren;
 
 	public:
 		Interface( int windowheight );

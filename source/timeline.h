@@ -3,6 +3,9 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
+#include <iostream>
+
+#include "textrenderer.h"
 
 class Timeline
 {
@@ -12,11 +15,11 @@ class Timeline
 		int marker;	// The Position of the Marker, showing where you are in the song
 		int offset;	// Marker offset from left screen border to 0
 
-		TTF_Font *font;
 		SDL_Rect window;
+		TextRenderer* textrenderer;
 	public:
 		void Render( SDL_Renderer *ren );
-		void Init( int screenHeight, TTF_Font *ifont );
+		void Init( int screenHeight, TextRenderer *textren );
 		void Update( int newMarkerPos );
 		//Timeline( int windowHeight );
 
