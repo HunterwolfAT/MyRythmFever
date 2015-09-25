@@ -57,5 +57,5 @@ clean:
 .PHONY: clean
 
 # Dependencies
-$(TARGET): $(BUILD_DIR)/editor.o $(BUILD_DIR)/timeline.o $(BUILD_DIR)/audioplayer.o $(BUILD_DIR)/objectmanager.o $(BUILD_DIR)/interface.o $(BUILD_DIR)/textrenderer.o | $(BUILD_DIR)
+$(TARGET): $(BUILD_DIR)/editor.o $(BUILD_DIR)/timeline.o $(BUILD_DIR)/audioplayer.o $(BUILD_DIR)/objectmanager.o $(BUILD_DIR)/interface.o $(BUILD_DIR)/textrenderer.o $(BUILD_DIR)/interface_button.o $(BUILD_DIR)/interface_numberfield.o | $(BUILD_DIR)
 
