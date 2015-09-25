@@ -9,6 +9,8 @@ class TextRenderer {
 
 	public:
 		TTF_Font *ifont;	// Interface Font
+		SDL_Color White = {255, 255, 255};
+		SDL_Color BG = {190, 30, 35};
 
 	public:
 		TextRenderer();

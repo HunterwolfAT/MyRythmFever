@@ -34,7 +34,7 @@ CC = g++
 TARGET = myRythmFever
 
 CFLAGS = 
-LDLIBS = `sdl2-config --libs` -lSDL2 -lSDL2_mixer -lSDL2_ttf
+LDLIBS = `sdl2-config --libs` -lSDL2 -lSDL2_mixer -lSDL2_ttf -std=c++11 -Wall
 INCLUDES = -Isource
 
 SRC_DIR = source

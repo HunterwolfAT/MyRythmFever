@@ -20,8 +20,7 @@ TextRenderer::TextRenderer()
 void TextRenderer::RenderText( SDL_Renderer* ren, const char* message, int posx, int posy )
 {
 	//Test Text
-	SDL_Color White = {255, 255, 255};
-	SDL_Surface* surfacetext = TTF_RenderText_Blended( ifont, message, White);
+	SDL_Surface* surfacetext = TTF_RenderText_Shaded( ifont, message, White, BG);
 	SDL_Texture* text = SDL_CreateTextureFromSurface( ren, surfacetext );
 
 	SDL_Rect text_rect;
