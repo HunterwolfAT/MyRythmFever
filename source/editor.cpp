@@ -2,16 +2,14 @@
 #include <iostream>
 #include "editor.h"
 
+#include "interface.h"
 
 Editor::Editor() {
 	ren = NULL;
 	window = NULL;
 	WINDOW_WIDTH = 1280;
 	WINDOW_HEIGHT = 720;
-}
-
-void Editor::test() {
-	std::cout<<"Testing...!"<<std::endl;
+	interface = new Interface( WINDOW_HEIGHT );
 }
 
 int Editor::init() {
@@ -36,7 +34,7 @@ int Editor::init() {
 		return 0;
 	}
 
-	timeline.Init( WINDOW_HEIGHT );
+	//timeline.Init( WINDOW_HEIGHT );
 
 	audioplayer.LoadSong("audio/mrf_music.ogg");
 	audioplayer.PlaySong();
@@ -75,11 +73,15 @@ void Editor::loop() {
 			SDL_RenderFillRect( ren, NULL);
 
 			// Render Everything
-			timeline.Render( ren );
+			interface->Render( ren );
 
 			SDL_RenderPresent( ren );
 		}
 
 		SDL_DestroyWindow( window );
 	}
+}
+
+Editor::~Editor() {
+	delete interface;
 }

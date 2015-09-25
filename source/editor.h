@@ -1,8 +1,8 @@
 #include <SDL2/SDL.h>
 #include <stdbool.h>
 
-#include "timeline.h"
 #include "audioplayer.h"
+#include "interface.h"
 
 #ifndef EDITOR_H
 #define EDITOR_H
@@ -16,14 +16,14 @@ class Editor {
 		int WINDOW_HEIGHT;
 		_Bool running;
 
-		Timeline timeline;
+		Interface *interface;
 		AudioPlayer audioplayer;
 
 		int init();
 	public:
-		void test();
 		void loop();
 		Editor();
+		~Editor();
 };
 
 #endif
