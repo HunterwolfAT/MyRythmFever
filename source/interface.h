@@ -1,11 +1,10 @@
-
-#include "timeline.h"
-
 #ifndef INTERFACE_H
 #define INTERFACE_H
 
 #include <SDL2/SDL_ttf.h>
 #include <iostream>
+
+#include "timeline.h"
 
 class Interface{
 

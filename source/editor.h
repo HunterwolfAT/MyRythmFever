@@ -1,11 +1,12 @@
+#ifndef EDITOR_H
+#define EDITOR_H
+
 #include <SDL2/SDL.h>
 #include <stdbool.h>
+#include <iostream>
 
 #include "audioplayer.h"
 #include "interface.h"
-
-#ifndef EDITOR_H
-#define EDITOR_H
 
 class Editor {
 	private: 

@@ -1,8 +1,5 @@
-#include <SDL2/SDL.h>
-#include <iostream>
 #include "editor.h"
 
-#include "interface.h"
 
 Editor::Editor() {
 	ren = NULL;
