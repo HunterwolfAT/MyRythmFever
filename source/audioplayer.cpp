@@ -14,7 +14,7 @@ AudioPlayer::AudioPlayer()
 	// We dont use samples, so deallocate the default 8 channels...
 	Mix_AllocateChannels(0);
 
-	std::cout<<"SDL_Mixer Init successful."<<std::endl;
+	std::cout<<"SDL_Mixer Init successful!"<<std::endl;
 }
 
 void AudioPlayer::LoadSong( const char* songtitle )

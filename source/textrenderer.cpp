@@ -9,7 +9,7 @@ TextRenderer::TextRenderer()
 	{
 		std::cout<<"SDL_TTF was not initialized! SDL_ERROR: "<<TTF_GetError()<<std::endl;
 	} else {
-		ifont = TTF_OpenFont("img/font.ttf", 116);
+		ifont = TTF_OpenFont("img/font.ttf", 46);
 		if ( ifont == NULL )
 		{
 			std::cout<<"Font could not be loaded! SDL_ERROR: "<<TTF_GetError()<<std::endl;
@@ -26,10 +26,12 @@ void TextRenderer::RenderText( SDL_Renderer* ren, const char* message, int posx,
 	SDL_Rect text_rect;
 	text_rect.x = posx;
 	text_rect.y = posy;
-	text_rect.w = 500;
-	text_rect.h = 100;
+	text_rect.w = surfacetext->w;
+	text_rect.h = surfacetext->h;
 
 	SDL_RenderCopy( ren, text, NULL, &text_rect );
+
+	SDL_FreeSurface( surfacetext );
 }
 
 TextRenderer::~TextRenderer()

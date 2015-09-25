@@ -67,7 +67,8 @@ void Editor::loop() {
 
 			// Background Color
 			SDL_SetRenderDrawColor( ren, 160, 0, 65, 255);
-			SDL_RenderFillRect( ren, NULL);
+			//SDL_RenderFillRect( ren, NULL);
+			SDL_RenderClear( ren );
 
 			// Render Everything
 			interface->Render( ren );
