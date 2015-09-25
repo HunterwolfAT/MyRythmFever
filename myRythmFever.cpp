@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include <iostream>
 
-#include "editor.h"
+#include "source/editor.h"
 
 
 
