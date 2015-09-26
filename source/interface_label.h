@@ -12,11 +12,10 @@ class I_Label
 		int posx, posy;
 		const char* value;
 
-		TextRenderer textren;	// This is pretty shitty cause now
-					// the font gets loaded with every single label
+		TextRenderer *textren;	
 
 	public:
-		I_Label( int x, int y, const char* text );
+		I_Label( TextRenderer* textrenderer, int x, int y, const char* text );
 		~I_Label();
 
 		void Render( SDL_Renderer* ren );
