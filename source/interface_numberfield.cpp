@@ -1,4 +1,3 @@
-
 #include "interface_numberfield.h"
 
 I_Numberfield::I_Numberfield( int x, int y )

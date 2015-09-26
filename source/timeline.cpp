@@ -13,6 +13,7 @@ void Timeline::Init( int screenHeight, TextRenderer* textren )
 	window.x = 0;
 	window.y = screenHeight - height;
 
+	testy = new I_Label( 20, window.y + 15, "Interface Testing -- It Works!" );
 	textrenderer = textren;
 }
 
@@ -27,7 +28,8 @@ void Timeline::Render( SDL_Renderer *ren )
 	SDL_RenderDrawLine( ren, marker + offset, window.y + 20, marker + offset, window.y + 80 );
 
 	// Render Test Text
-	textrenderer->RenderText( ren, "This is my new test text.", 80, window.y + 5);
+	//textrenderer->RenderText( ren, "This is my new test text.", 80, window.y + 5);
+	testy->Render( ren );
 }
 
 void Timeline::Update( int newMarkerPos )

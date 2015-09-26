@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include "textrenderer.h"
+#include "interface_label.h"
 
 class Timeline
 {
@@ -17,6 +18,8 @@ class Timeline
 
 		SDL_Rect window;
 		TextRenderer* textrenderer;
+		I_Label* testy;
+
 	public:
 		void Render( SDL_Renderer *ren );
 		void Init( int screenHeight, TextRenderer *textren );
