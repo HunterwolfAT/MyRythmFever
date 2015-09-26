@@ -12,12 +12,16 @@ class AudioPlayer
 
 		Mix_Music *song;
 
+		bool paused;
+		bool playing;
+
 	public:
 		AudioPlayer();
 		~AudioPlayer();
 		void LoadSong( const char* songtitle );
 		void PlaySong();
 		void PauseSong();
+		void PausePlaySong();
 		void SetSongPosition( double songpos );
 };
 

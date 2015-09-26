@@ -5,6 +5,8 @@ AudioPlayer::AudioPlayer()
 	result = 0;
 	flags = MIX_INIT_MP3|MIX_INIT_FLAC|MIX_INIT_OGG;
 	song = NULL;
+	playing = false;
+	paused = true;
 
 	if ( flags != ( result = Mix_Init( flags ) ) )
 	{
@@ -34,19 +36,46 @@ void AudioPlayer::LoadSong( const char* songtitle )
 
 void AudioPlayer::PlaySong()
 {
-	Mix_PlayMusic( song, 1 );
+	if ( playing == false )
+	{
+		Mix_PlayMusic( song, 1 );
+		playing = true;
+	} else {
+		Mix_ResumeMusic();
+	}
+	paused = false;
 }
 
 void AudioPlayer::PauseSong()
 {
 	Mix_PauseMusic();
+	paused = true;
 }
 
 void AudioPlayer::SetSongPosition( double songpos )
 {
+	// songpos in seconds
+	//  - from beginning in OGG
+	//  - from current position in MP3. Doesnt go reverse, call Mix_RewindMusic() maybe.
 	if( Mix_SetMusicPosition( songpos ) )
 	{
 		std::cout<<"Could not set Song Position! SDL_Error: "<<Mix_GetError()<<std::endl;
+	}
+}
+
+void AudioPlayer::PausePlaySong()
+{
+	if ( song == NULL )
+	{
+		std::cout<<"Can't play a song that isnt loaded!"<<std::endl;
+	} else {
+		if ( paused )
+		{
+			PlaySong();
+		}
+		else {
+			PauseSong();
+		}
 	}
 }
 

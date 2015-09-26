@@ -34,7 +34,6 @@ int Editor::init() {
 	//timeline.Init( WINDOW_HEIGHT );
 
 	audioplayer.LoadSong("audio/mrf_music.ogg");
-	audioplayer.PlaySong();
 
 	return 1;
 }
@@ -56,6 +55,10 @@ void Editor::loop() {
 					{
 						case SDLK_ESCAPE:
 							running = false;
+							break;
+
+						case SDLK_SPACE:
+							audioplayer.PausePlaySong();
 							break;
 					}
 				}
