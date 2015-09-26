@@ -39,12 +39,15 @@ void AudioPlayer::PlaySong()
 
 void AudioPlayer::PauseSong()
 {
-
+	Mix_PauseMusic();
 }
 
 void AudioPlayer::SetSongPosition( double songpos )
 {
-
+	if( Mix_SetMusicPosition( songpos ) )
+	{
+		std::cout<<"Could not set Song Position! SDL_Error: "<<Mix_GetError()<<std::endl;
+	}
 }
 
 AudioPlayer::~AudioPlayer()
