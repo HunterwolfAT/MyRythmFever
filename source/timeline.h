@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include "textrenderer.h"
+#include "audioplayer.h"
 #include "interface_label.h"
 
 class Timeline
@@ -15,14 +16,17 @@ class Timeline
 		int height;
 		int marker;	// The Position of the Marker, showing where you are in the song
 		int offset;	// Marker offset from left screen border to 0
+		int zoomlvl;	// show whole song or bits of it
+
 
 		SDL_Rect window;
 		TextRenderer* textrenderer;
+		AudioPlayer* audioplayer;
 		I_Label* testy;
 
 	public:
 		void Render( SDL_Renderer *ren );
-		void Init( int screenHeight, TextRenderer *textren );
+		void Init( int screenHeight, TextRenderer *textren, AudioPlayer *audiopl );
 		void Update( int newMarkerPos );
 		//Timeline( int windowHeight );
 

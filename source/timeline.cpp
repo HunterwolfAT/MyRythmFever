@@ -1,12 +1,13 @@
 #include "timeline.h"
 
 
-void Timeline::Init( int screenHeight, TextRenderer* textren ) 
+void Timeline::Init( int screenHeight, TextRenderer* textren, AudioPlayer* audiopl ) 
 {
 	width = 1280;
 	height = 100;
 	marker = 0;
 	offset = 130;
+	zoomlvl = 0;
 
 	window.w = width;
 	window.h = height;
@@ -15,6 +16,7 @@ void Timeline::Init( int screenHeight, TextRenderer* textren )
 
 	testy = new I_Label( textren, 20, window.y + 15, "Interface Testing -- It Works!" );
 	textrenderer = textren;
+	audioplayer = audiopl;
 }
 
 void Timeline::Render( SDL_Renderer *ren )

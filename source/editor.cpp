@@ -6,7 +6,7 @@ Editor::Editor() {
 	window = NULL;
 	WINDOW_WIDTH = 1280;
 	WINDOW_HEIGHT = 720;
-	interface = new Interface( WINDOW_HEIGHT );
+	interface = new Interface( WINDOW_HEIGHT, &audioplayer );
 }
 
 int Editor::init() {

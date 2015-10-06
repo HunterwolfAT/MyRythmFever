@@ -1,11 +1,11 @@
 #include "interface.h"
 
-Interface::Interface( int windowheight )
+Interface::Interface( int windowheight, AudioPlayer* audioplayer )
 {
 	textren = new TextRenderer();
 
 	// Initialize Interface Components
-	timeline.Init( windowheight, textren );
+	timeline.Init( windowheight, textren, audioplayer );
 
 }
 

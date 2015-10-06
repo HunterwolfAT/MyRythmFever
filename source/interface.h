@@ -6,6 +6,7 @@
 
 #include "timeline.h"
 #include "textrenderer.h"
+#include "audioplayer.h"
 
 class Interface{
 
@@ -14,7 +15,7 @@ class Interface{
 		TextRenderer *textren;
 
 	public:
-		Interface( int windowheight );
+		Interface( int windowheight, AudioPlayer* audioplayer );
 		~Interface();
 		void Render( SDL_Renderer* ren );
 };
