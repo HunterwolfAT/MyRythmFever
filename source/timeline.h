@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <iostream>
+#include <sstream>
 
 #include "textrenderer.h"
 #include "audioplayer.h"
@@ -26,12 +27,6 @@ class Timeline
 		TextRenderer* textrenderer;
 		AudioPlayer* audioplayer;
 		I_Label* testy;
-
-        I_Label* minute_1;
-        I_Label* seconds_30;
-        I_Label* seconds_15;
-        I_Label* seconds_45;
-        I_Label* seconds_0;
 
 
 	public:

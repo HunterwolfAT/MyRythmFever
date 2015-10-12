@@ -1,5 +1,8 @@
 #include "timeline.h"
 
+// Help convert int to strings
+#define SSTR( x ) dynamic_cast< std::ostringstream & >( \
+        ( std::ostringstream() << std::dec << x ) ).str()
 
 void Timeline::Init( int screenHeight, TextRenderer* textren, AudioPlayer* audiopl )
 {
@@ -43,8 +46,14 @@ void Timeline::Render( SDL_Renderer *ren , TextRenderer* textren )
 
     // Timeline labels
     int buffer = offset;
+    int counter = 1;
+
+    I_Label* beat_label = new I_Label( textren, buffer, window.y + 15, "0s" );
+    beat_label->Render( ren );
+
     while ( buffer < window.w ) {
-        I_Label* beat_label = new I_Label( textren, offset + zoomlvl, window.y + 15, "1m" );
+        std::string fullMinute = SSTR( counter ) + "m";
+        beat_label = new I_Label( textren, buffer + zoomlvl, window.y + 15, fullMinute.c_str() );
         beat_label->Render( ren );
         beat_label = new I_Label( textren, buffer + ( zoomlvl / 2 ), window.y + 15, "30s" );
         beat_label->Render( ren );
@@ -52,9 +61,8 @@ void Timeline::Render( SDL_Renderer *ren , TextRenderer* textren )
         beat_label->Render( ren );
         beat_label = new I_Label( textren, buffer + ( zoomlvl / 2 ) + ( zoomlvl / 4 ), window.y + 15, "45s" );
         beat_label->Render( ren );
-        beat_label = new I_Label( textren, buffer, window.y + 15, "0s" );
-        beat_label->Render( ren );
         buffer += zoomlvl;
+        counter++;
     }
 
 
