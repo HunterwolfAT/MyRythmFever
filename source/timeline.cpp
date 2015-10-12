@@ -5,9 +5,12 @@ void Timeline::Init( int screenHeight, TextRenderer* textren, AudioPlayer* audio
 {
 	width = 1280;
 	height = 100;
-	marker = 0;
+	marker = 0.0;
 	offset = 130;
-	zoomlvl = 100;      // Number of pixels for one Minute. Increase to zoom in, decrease to zoom out.
+	zoomlvl = 5;      // Number of pixels for one Minute. Increase to zoom in, decrease to zoom out.
+    lastTime = 0;
+
+    startPlaying = true;    // Do we have to start playing?
 
 	window.w = width;
 	window.h = height;
@@ -47,6 +50,19 @@ void Timeline::Update( /*int newMarkerPos*/ )
 {
     if ( audioplayer->IsPlaying() && !audioplayer->IsPaused()  )
     {
-        marker += 1;
+        currentTime = SDL_GetTicks();
+        if ( startPlaying )
+        {
+            // This is really bad and will definitly cause desyncs
+            lastTime = currentTime;
+            startPlaying = false;
+        }
+        unsigned int deltaTime = currentTime - lastTime;
+        marker += ( ( deltaTime / 1000.0 ) * 60.0 ) / zoomlvl;
+        std::cout<<marker<<std::endl;
+        lastTime = currentTime;
+    }
+    else {
+         startPlaying = true;
     }
 }
