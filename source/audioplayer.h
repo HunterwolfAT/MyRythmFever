@@ -28,6 +28,7 @@ class AudioPlayer
 		void SetSongPosition( double songpos );
         double GetSongPosition();
         bool IsPlaying();
+        bool IsPaused();
 };
 
 #endif

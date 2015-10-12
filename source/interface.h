@@ -18,6 +18,7 @@ class Interface{
 		Interface( int windowheight, AudioPlayer* audioplayer );
 		~Interface();
 		void Render( SDL_Renderer* ren );
+        void Update();
 };
 
 #endif

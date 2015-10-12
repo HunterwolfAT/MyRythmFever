@@ -18,7 +18,7 @@ int Editor::init() {
 		WINDOW_HEIGHT,
 		SDL_WINDOW_SHOWN );
 
-	if ( window == NULL ) 
+	if ( window == NULL )
 	{
 		std::cout<<"CreateWindow Error!"<<std::endl;
 		return 0;
@@ -39,13 +39,13 @@ int Editor::init() {
 }
 
 void Editor::loop() {
-	
+
 	if (!init())
 	{
 		std::cout<<"Editor Init Failed! SDL_Error: "<<SDL_GetError()<<std::endl;
 	} else {
 		std::cout<<"Editor Init Successful!"<<std::endl;
-		while ( running ) 
+		while ( running )
 		{
 			while( SDL_PollEvent( &event ) != 0 )
 			{
@@ -62,11 +62,14 @@ void Editor::loop() {
 							break;
 					}
 				}
-				if( event.type == SDL_QUIT ) 
+				if( event.type == SDL_QUIT )
 				{
 					running = false;
 				}
 			}
+
+            // Update cycle
+            interface->Update();
 
 			// Background Color
 			SDL_SetRenderDrawColor( ren, 160, 0, 65, 255);

@@ -27,7 +27,7 @@ class Timeline
 	public:
 		void Render( SDL_Renderer *ren );
 		void Init( int screenHeight, TextRenderer *textren, AudioPlayer *audiopl );
-		void Update( int newMarkerPos );
+		void Update( /*int newMarkerPos*/ );
 		//Timeline( int windowHeight );
 
 };

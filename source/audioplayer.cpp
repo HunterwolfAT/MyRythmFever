@@ -88,12 +88,11 @@ bool AudioPlayer::IsPlaying() {
      return playing;
 }
 
+bool AudioPlayer::IsPaused() {
+     return paused;
+}
+
 AudioPlayer::~AudioPlayer()
 {
 	Mix_FreeMusic( song );
-}
-
-int AudioPlayer::GetBPM()
-{
-	return bpm;
 }

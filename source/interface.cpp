@@ -14,6 +14,11 @@ void Interface::Render( SDL_Renderer* ren )
 	timeline.Render( ren );
 }
 
+void Interface::Update(  )
+{
+    timeline.Update();
+}
+
 Interface::~Interface()
 {
 }

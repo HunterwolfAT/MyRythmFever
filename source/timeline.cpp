@@ -34,9 +34,9 @@ void Timeline::Render( SDL_Renderer *ren )
 	testy->Render( ren );
 }
 
-void Timeline::Update( int newMarkerPos )
+void Timeline::Update( /*int newMarkerPos*/ )
 {
-    if ( audioplayer->IsPlaying() )
+    if ( audioplayer->IsPlaying() && !audioplayer->IsPaused()  )
     {
         marker += 1;
     }
