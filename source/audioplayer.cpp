@@ -7,6 +7,7 @@ AudioPlayer::AudioPlayer()
 	song = NULL;
 	playing = false;
 	paused = true;
+	bpm = 60;
 
 	if ( flags != ( result = Mix_Init( flags ) ) )
 	{
@@ -82,4 +83,9 @@ void AudioPlayer::PausePlaySong()
 AudioPlayer::~AudioPlayer()
 {
 	Mix_FreeMusic( song );
+}
+
+int AudioPlayer::GetBPM()
+{
+	return bpm;
 }

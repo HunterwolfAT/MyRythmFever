@@ -9,6 +9,7 @@ class AudioPlayer
 	private:
 		int result;
 		int flags;
+		int bpm;
 
 		Mix_Music *song;
 
@@ -23,6 +24,8 @@ class AudioPlayer
 		void PauseSong();
 		void PausePlaySong();
 		void SetSongPosition( double songpos );
+
+		int GetBPM();
 };
 
 #endif

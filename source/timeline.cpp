@@ -14,7 +14,7 @@ void Timeline::Init( int screenHeight, TextRenderer* textren, AudioPlayer* audio
 	window.x = 0;
 	window.y = screenHeight - height;
 
-	testy = new I_Label( textren, 20, window.y + 15, "Interface Testing -- It Works!" );
+	testy = new I_Label( textren, 20, window.y + 15, /* audiopl->GetBPM() */ "Testing" );
 	textrenderer = textren;
 	audioplayer = audiopl;
 }
