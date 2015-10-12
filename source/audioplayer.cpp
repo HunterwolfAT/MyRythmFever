@@ -80,6 +80,14 @@ void AudioPlayer::PausePlaySong()
 	}
 }
 
+double AudioPlayer::GetSongPosition() {
+     return songposition;
+}
+
+bool AudioPlayer::IsPlaying() {
+     return playing;
+}
+
 AudioPlayer::~AudioPlayer()
 {
 	Mix_FreeMusic( song );

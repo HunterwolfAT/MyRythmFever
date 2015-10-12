@@ -16,6 +16,8 @@ class AudioPlayer
 		bool paused;
 		bool playing;
 
+        double songposition;
+
 	public:
 		AudioPlayer();
 		~AudioPlayer();
@@ -24,8 +26,8 @@ class AudioPlayer
 		void PauseSong();
 		void PausePlaySong();
 		void SetSongPosition( double songpos );
-
-		int GetBPM();
+        double GetSongPosition();
+        bool IsPlaying();
 };
 
 #endif
