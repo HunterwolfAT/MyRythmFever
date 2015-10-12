@@ -1,7 +1,7 @@
 #include "timeline.h"
 
 
-void Timeline::Init( int screenHeight, TextRenderer* textren, AudioPlayer* audiopl ) 
+void Timeline::Init( int screenHeight, TextRenderer* textren, AudioPlayer* audiopl )
 {
 	width = 1280;
 	height = 100;
@@ -36,5 +36,8 @@ void Timeline::Render( SDL_Renderer *ren )
 
 void Timeline::Update( int newMarkerPos )
 {
-	marker = newMarkerPos;
+    if ( audioplayer->IsPlaying() )
+    {
+        marker += 1;
+    }
 }
