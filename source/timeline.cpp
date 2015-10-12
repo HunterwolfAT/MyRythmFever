@@ -22,7 +22,7 @@ void Timeline::Init( int screenHeight, TextRenderer* textren, AudioPlayer* audio
 	audioplayer = audiopl;
 }
 
-void Timeline::Render( SDL_Renderer *ren )
+void Timeline::Render( SDL_Renderer *ren , TextRenderer* textren )
 {
 	// Background
 	SDL_SetRenderDrawColor( ren, 210, 60, 35, 255);
@@ -40,6 +40,19 @@ void Timeline::Render( SDL_Renderer *ren )
             SDL_RenderDrawLine( ren, offset + ( i * audioplayer->GetBPM() ), window.y + 40, offset + ( i * audioplayer->GetBPM() ), window.y + 60 );
         }
     }
+
+    // Timeline labels
+    I_Label* beat_label = new I_Label( textren, offset + zoomlvl, window.y + 15, "1m" );
+    beat_label->Render( ren );
+    beat_label = new I_Label( textren, offset + ( zoomlvl / 2 ), window.y + 15, "30s" );
+    beat_label->Render( ren );
+    beat_label = new I_Label( textren, offset + ( zoomlvl / 4 ), window.y + 15, "15s" );
+    beat_label->Render( ren );
+    beat_label = new I_Label( textren, offset + ( zoomlvl / 2 ) + ( zoomlvl / 4 ), window.y + 15, "45s" );
+    beat_label->Render( ren );
+    beat_label = new I_Label( textren, offset, window.y + 15, "0s" );
+    beat_label->Render( ren );
+
 
 	// Render Test Text
 	//textrenderer->RenderText( ren, "This is my new test text.", 80, window.y + 5);

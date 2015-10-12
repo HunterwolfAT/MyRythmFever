@@ -11,7 +11,7 @@ Interface::Interface( int windowheight, AudioPlayer* audioplayer )
 
 void Interface::Render( SDL_Renderer* ren )
 {
-	timeline.Render( ren );
+	timeline.Render( ren, textren );
 }
 
 void Interface::Update(  )

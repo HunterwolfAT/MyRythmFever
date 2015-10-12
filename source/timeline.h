@@ -27,8 +27,15 @@ class Timeline
 		AudioPlayer* audioplayer;
 		I_Label* testy;
 
+        I_Label* minute_1;
+        I_Label* seconds_30;
+        I_Label* seconds_15;
+        I_Label* seconds_45;
+        I_Label* seconds_0;
+
+
 	public:
-		void Render( SDL_Renderer *ren );
+		void Render( SDL_Renderer *ren, TextRenderer* textren );
 		void Init( int screenHeight, TextRenderer *textren, AudioPlayer *audiopl );
 		void Update( /*int newMarkerPos*/ );
 		//Timeline( int windowHeight );
