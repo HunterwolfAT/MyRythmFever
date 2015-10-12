@@ -7,7 +7,7 @@ void Timeline::Init( int screenHeight, TextRenderer* textren, AudioPlayer* audio
 	height = 100;
 	marker = 0.0;
 	offset = 130;
-	zoomlvl = 5;      // Number of pixels for one Minute. Increase to zoom in, decrease to zoom out.
+	zoomlvl = 100;      // Number of pixels for one Minute. Increase to zoom in, decrease to zoom out.
     lastTime = 0;
 
     startPlaying = true;    // Do we have to start playing?
@@ -58,8 +58,9 @@ void Timeline::Update( /*int newMarkerPos*/ )
             startPlaying = false;
         }
         unsigned int deltaTime = currentTime - lastTime;
-        marker += ( ( deltaTime / 1000.0 ) * 60.0 ) / zoomlvl;
-        std::cout<<marker<<std::endl;
+        double pixelpersecond = ( ( ( deltaTime / 1000.0 ) * 60.0 ) / 60);
+        marker += pixelpersecond * ( zoomlvl / 60 );
+        std::cout<<( ( deltaTime / 1000.0  ) * 60.0 )<<std::endl;
         lastTime = currentTime;
     }
     else {
