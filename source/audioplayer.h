@@ -21,14 +21,15 @@ class AudioPlayer
 	public:
 		AudioPlayer();
 		~AudioPlayer();
-		void LoadSong( const char* songtitle );
-		void PlaySong();
-		void PauseSong();
-		void PausePlaySong();
-		void SetSongPosition( double songpos );
-        double GetSongPosition();
-        bool IsPlaying();
-        bool IsPaused();
+		void    LoadSong( const char* songtitle );
+		void    PlaySong();
+		void    PauseSong();
+		void    PausePlaySong();
+		void    SetSongPosition( double songpos );
+        double  GetSongPosition();
+        bool    IsPlaying();
+        bool    IsPaused();
+        int     GetBPM();
 };
 
 #endif

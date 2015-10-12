@@ -92,6 +92,10 @@ bool AudioPlayer::IsPaused() {
      return paused;
 }
 
+int AudioPlayer::GetBPM() {
+     return bpm;
+}
+
 AudioPlayer::~AudioPlayer()
 {
 	Mix_FreeMusic( song );

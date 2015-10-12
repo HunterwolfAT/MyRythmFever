@@ -7,7 +7,7 @@ void Timeline::Init( int screenHeight, TextRenderer* textren, AudioPlayer* audio
 	height = 100;
 	marker = 0;
 	offset = 130;
-	zoomlvl = 0;
+	zoomlvl = 100;      // Number of pixels for one Minute. Increase to zoom in, decrease to zoom out.
 
 	window.w = width;
 	window.h = height;
@@ -28,6 +28,15 @@ void Timeline::Render( SDL_Renderer *ren )
 	// Marker
 	SDL_SetRenderDrawColor( ren, 0, 0, 0, 255);
 	SDL_RenderDrawLine( ren, marker + offset, window.y + 20, marker + offset, window.y + 80 );
+
+    // Beats
+    if ( audioplayer->GetBPM() != 0 )
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            SDL_RenderDrawLine( ren, offset + ( i * audioplayer->GetBPM() ), window.y + 40, offset + ( i * audioplayer->GetBPM() ), window.y + 60 );
+        }
+    }
 
 	// Render Test Text
 	//textrenderer->RenderText( ren, "This is my new test text.", 80, window.y + 5);
