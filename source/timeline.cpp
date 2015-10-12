@@ -42,16 +42,20 @@ void Timeline::Render( SDL_Renderer *ren , TextRenderer* textren )
     }
 
     // Timeline labels
-    I_Label* beat_label = new I_Label( textren, offset + zoomlvl, window.y + 15, "1m" );
-    beat_label->Render( ren );
-    beat_label = new I_Label( textren, offset + ( zoomlvl / 2 ), window.y + 15, "30s" );
-    beat_label->Render( ren );
-    beat_label = new I_Label( textren, offset + ( zoomlvl / 4 ), window.y + 15, "15s" );
-    beat_label->Render( ren );
-    beat_label = new I_Label( textren, offset + ( zoomlvl / 2 ) + ( zoomlvl / 4 ), window.y + 15, "45s" );
-    beat_label->Render( ren );
-    beat_label = new I_Label( textren, offset, window.y + 15, "0s" );
-    beat_label->Render( ren );
+    int buffer = offset;
+    while ( buffer < window.w ) {
+        I_Label* beat_label = new I_Label( textren, offset + zoomlvl, window.y + 15, "1m" );
+        beat_label->Render( ren );
+        beat_label = new I_Label( textren, buffer + ( zoomlvl / 2 ), window.y + 15, "30s" );
+        beat_label->Render( ren );
+        beat_label = new I_Label( textren, buffer + ( zoomlvl / 4 ), window.y + 15, "15s" );
+        beat_label->Render( ren );
+        beat_label = new I_Label( textren, buffer + ( zoomlvl / 2 ) + ( zoomlvl / 4 ), window.y + 15, "45s" );
+        beat_label->Render( ren );
+        beat_label = new I_Label( textren, buffer, window.y + 15, "0s" );
+        beat_label->Render( ren );
+        buffer += zoomlvl;
+    }
 
 
 	// Render Test Text
@@ -71,9 +75,9 @@ void Timeline::Update( /*int newMarkerPos*/ )
             startPlaying = false;
         }
         unsigned int deltaTime = currentTime - lastTime;
-        double pixelpersecond = ( ( ( deltaTime / 1000.0 ) * 60.0 ) / 60);
-        marker += pixelpersecond * ( zoomlvl / 60 );
-        std::cout<<( ( deltaTime / 1000.0  ) * 60.0 )<<std::endl;
+        double pixelpersecond = ( deltaTime / 1000.0 );
+        marker += pixelpersecond * ( zoomlvl / 60.0 );
+        std::cout<<( ( deltaTime / 1000.0  ) * (zoomlvl / 60.0 )  )<<std::endl;
         lastTime = currentTime;
     }
     else {
