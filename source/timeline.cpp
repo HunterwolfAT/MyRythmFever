@@ -10,7 +10,7 @@ void Timeline::Init( int screenHeight, TextRenderer* textren, AudioPlayer* audio
 	height = 100;
 	marker = 0.0;
 	offset = 130;
-	zoomlvl = 100;      // Number of pixels for one Minute. Increase to zoom in, decrease to zoom out.
+	zoomlvl = 300;      // Number of pixels for one Minute. Increase to zoom in, decrease to zoom out.
     lastTime = 0;
 
     startPlaying = true;    // Do we have to start playing?
@@ -38,9 +38,14 @@ void Timeline::Render( SDL_Renderer *ren , TextRenderer* textren )
     // Beats
     if ( audioplayer->GetBPM() != 0 )
     {
-        for (int i = 0; i < 20; i++)
+        int buffer = offset;
+        while ( buffer < window.w )
         {
-            SDL_RenderDrawLine( ren, offset + ( i * audioplayer->GetBPM() ), window.y + 40, offset + ( i * audioplayer->GetBPM() ), window.y + 60 );
+            for (int i = 0; i <= audioplayer->GetBPM(); i++ )
+            {
+                SDL_RenderDrawLine( ren, buffer + ( i * ( zoomlvl / audioplayer->GetBPM() ) ), window.y + 40, buffer + ( i * ( zoomlvl / audioplayer->GetBPM() ) ), window.y + 60 );
+            }
+            buffer += zoomlvl;
         }
     }
 
