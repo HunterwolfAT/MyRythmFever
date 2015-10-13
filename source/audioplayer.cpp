@@ -24,7 +24,7 @@ AudioPlayer::AudioPlayer()
 
 void AudioPlayer::LoadSong( const char* songtitle )
 {
-	if ( Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 640) )
+	if ( Mix_OpenAudio(44100, AUDIO_S16SYS, 2, 640) )
 	{
 		std::cout<<"Couldn't open Audio Channel! SDL_Error: "<<Mix_GetError()<<std::endl;
 	}
