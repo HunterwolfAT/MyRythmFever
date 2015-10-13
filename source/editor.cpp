@@ -69,6 +69,7 @@ void Editor::loop() {
 			}
 
             // Update cycle
+            audioplayer.Update();
             interface->Update();
 
 			// Background Color

@@ -8,6 +8,7 @@ AudioPlayer::AudioPlayer()
 	playing = false;
 	paused = true;
 	bpm = 60;
+    pos_sec = 0.0;
 
 	if ( flags != ( result = Mix_Init( flags ) ) )
 	{
@@ -80,19 +81,43 @@ void AudioPlayer::PausePlaySong()
 	}
 }
 
-double AudioPlayer::GetSongPosition() {
+void AudioPlayer::Update()
+{
+    if ( playing && !paused )
+    {
+        currentTime = SDL_GetTicks();
+        if ( startPlaying )
+        {
+            // This is probably really bad and will definitly cause desyncs
+            lastTime = currentTime;
+            startPlaying = false;
+        }
+        unsigned int deltaTime_ms = currentTime - lastTime;
+        pos_sec += ( deltaTime_ms / 1000.0 );
+        std::cout<<pos_sec<<std::endl;
+        lastTime = currentTime;
+    } else {
+         startPlaying = false;
+    }
+}
+
+double AudioPlayer::GetSongPosition()
+{
      return songposition;
 }
 
-bool AudioPlayer::IsPlaying() {
+bool AudioPlayer::IsPlaying()
+{
      return playing;
 }
 
-bool AudioPlayer::IsPaused() {
+bool AudioPlayer::IsPaused()
+{
      return paused;
 }
 
-int AudioPlayer::GetBPM() {
+int AudioPlayer::GetBPM()
+{
      return bpm;
 }
 

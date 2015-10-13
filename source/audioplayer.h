@@ -2,6 +2,7 @@
 #define AUDIOPLAYER_H
 
 #include <SDL2/SDL_mixer.h>
+#include <SDL2/SDL.h>
 #include <iostream>
 
 class AudioPlayer
@@ -10,6 +11,11 @@ class AudioPlayer
 		int result;
 		int flags;
 		int bpm;
+
+    unsigned int lastTime, currentTime;
+    bool startPlaying;
+
+    double pos_sec;
 
 		Mix_Music *song;
 
@@ -30,6 +36,7 @@ class AudioPlayer
         bool    IsPlaying();
         bool    IsPaused();
         int     GetBPM();
+        void    Update();
 };
 
 #endif
