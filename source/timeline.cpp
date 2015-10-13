@@ -56,23 +56,29 @@ void Timeline::Render( SDL_Renderer *ren , TextRenderer* textren )
 
     I_Label* beat_label = new I_Label( textren, buffer, window.y + 5, "0" );
     beat_label->Render( ren );
+    delete beat_label;
 
+    // TODO: Allocate and Deallocate labels only when needed
     while ( buffer < window.w ) {
         fullTime = SSTR( counter ) + ":30";
         beat_label = new I_Label( textren, buffer + ( zoomlvl / 2 ), window.y + 5, fullTime.c_str() );
         beat_label->Render( ren );
+        delete beat_label;
         fullTime = SSTR( counter ) + ":15";
         beat_label = new I_Label( textren, buffer + ( zoomlvl / 4 ), window.y + 5, fullTime.c_str() );
         beat_label->Render( ren );
+        delete beat_label;
         fullTime = SSTR( counter ) + ":45";
         beat_label = new I_Label( textren, buffer + ( zoomlvl / 2 ) + ( zoomlvl / 4 ), window.y + 5, fullTime.c_str() );
         beat_label->Render( ren );
+        delete beat_label;
 
         counter++;
 
         fullTime = SSTR( counter ) + ":00";
         beat_label = new I_Label( textren, buffer + zoomlvl, window.y + 5, fullTime.c_str() );
         beat_label->Render( ren );
+        delete beat_label;
 
         buffer += zoomlvl;
     }

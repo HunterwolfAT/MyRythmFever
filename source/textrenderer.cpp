@@ -31,6 +31,7 @@ void TextRenderer::RenderText( SDL_Renderer* ren, const char* message, int posx,
 
 	SDL_RenderCopy( ren, text, NULL, &text_rect );
 
+    SDL_DestroyTexture(text);
 	SDL_FreeSurface( surfacetext );
 }
 
