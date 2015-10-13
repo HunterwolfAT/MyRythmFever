@@ -51,23 +51,30 @@ void Timeline::Render( SDL_Renderer *ren , TextRenderer* textren )
 
     // Timeline labels
     int buffer = offset;
-    int counter = 1;
+    int counter = 0;
+    std::string fullTime;
 
-    I_Label* beat_label = new I_Label( textren, buffer, window.y + 15, "0s" );
+    I_Label* beat_label = new I_Label( textren, buffer, window.y + 5, "0" );
     beat_label->Render( ren );
 
     while ( buffer < window.w ) {
-        std::string fullMinute = SSTR( counter ) + "m";
-        beat_label = new I_Label( textren, buffer + zoomlvl, window.y + 15, fullMinute.c_str() );
+        fullTime = SSTR( counter ) + ":30";
+        beat_label = new I_Label( textren, buffer + ( zoomlvl / 2 ), window.y + 5, fullTime.c_str() );
         beat_label->Render( ren );
-        beat_label = new I_Label( textren, buffer + ( zoomlvl / 2 ), window.y + 15, "30s" );
+        fullTime = SSTR( counter ) + ":15";
+        beat_label = new I_Label( textren, buffer + ( zoomlvl / 4 ), window.y + 5, fullTime.c_str() );
         beat_label->Render( ren );
-        beat_label = new I_Label( textren, buffer + ( zoomlvl / 4 ), window.y + 15, "15s" );
+        fullTime = SSTR( counter ) + ":45";
+        beat_label = new I_Label( textren, buffer + ( zoomlvl / 2 ) + ( zoomlvl / 4 ), window.y + 5, fullTime.c_str() );
         beat_label->Render( ren );
-        beat_label = new I_Label( textren, buffer + ( zoomlvl / 2 ) + ( zoomlvl / 4 ), window.y + 15, "45s" );
-        beat_label->Render( ren );
-        buffer += zoomlvl;
+
         counter++;
+
+        fullTime = SSTR( counter ) + ":00";
+        beat_label = new I_Label( textren, buffer + zoomlvl, window.y + 5, fullTime.c_str() );
+        beat_label->Render( ren );
+
+        buffer += zoomlvl;
     }
 
 
@@ -90,7 +97,7 @@ void Timeline::Update( /*int newMarkerPos*/ )
         unsigned int deltaTime = currentTime - lastTime;
         double pixelpersecond = ( deltaTime / 1000.0 );
         marker += pixelpersecond * ( zoomlvl / 60.0 );
-        std::cout<<( ( deltaTime / 1000.0  ) * (zoomlvl / 60.0 )  )<<std::endl;
+        //std::cout<<( ( deltaTime / 1000.0  ) * (zoomlvl / 60.0 )  )<<std::endl;
         lastTime = currentTime;
     }
     else {
