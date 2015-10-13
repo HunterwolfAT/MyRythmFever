@@ -4,7 +4,7 @@ function debug
 	mkdir build
 	if make
 		echo "Compilation Done. Starting myRythmFever..."
-		./myRythmFever
+		./myRythmFever magalovania.mp3
 		echo "Done."
 	end
 end
