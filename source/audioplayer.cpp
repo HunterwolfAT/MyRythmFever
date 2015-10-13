@@ -9,6 +9,7 @@ AudioPlayer::AudioPlayer()
 	paused = true;
 	bpm = 60;
     songposition = 0.0;
+    startPlaying = true;    // Do we have to start playing?
 
 	if ( flags != ( result = Mix_Init( flags ) ) )
 	{
@@ -97,7 +98,7 @@ void AudioPlayer::Update()
         //std::cout<<songposition<<std::endl;
         lastTime = currentTime;
     } else {
-         startPlaying = false;
+         startPlaying = true;
     }
 }
 
