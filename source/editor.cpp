@@ -9,7 +9,7 @@ Editor::Editor() {
 	interface = new Interface( WINDOW_HEIGHT, &audioplayer );
 }
 
-int Editor::init() {
+int Editor::init( const char* songfiletitle ) {
 	window = SDL_CreateWindow(
 		"myRythmFever",
 		SDL_WINDOWPOS_UNDEFINED,
@@ -33,14 +33,17 @@ int Editor::init() {
 
 	//timeline.Init( WINDOW_HEIGHT );
 
-	audioplayer.LoadSong("audio/mrf_music.ogg");
+    std::cout<<"Trying to load song "<<songfiletitle<<"."<<std::endl;
+    std::string songfile_str = songfiletitle;
+    std::string songfile = "audio/" + songfile_str;
+	audioplayer.LoadSong( songfile.c_str() );
 
 	return 1;
 }
 
-void Editor::loop() {
+void Editor::loop( const char* songfiletitle ) {
 
-	if (!init())
+	if (!init( songfiletitle ))
 	{
 		std::cout<<"Editor Init Failed! SDL_Error: "<<SDL_GetError()<<std::endl;
 	} else {

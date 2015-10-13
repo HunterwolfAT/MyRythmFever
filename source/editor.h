@@ -9,7 +9,7 @@
 #include "interface.h"
 
 class Editor {
-	private: 
+	private:
 		SDL_Renderer* ren;
 		SDL_Window* window;
 		SDL_Event event;
@@ -20,9 +20,9 @@ class Editor {
 		Interface *interface;
 		AudioPlayer audioplayer;
 
-		int init();
+		int init( const char* songfiletitle );
 	public:
-		void loop();
+		void loop( const char* songfiletitle );
 		Editor();
 		~Editor();
 };
