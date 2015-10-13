@@ -85,22 +85,5 @@ void Timeline::Render( SDL_Renderer *ren , TextRenderer* textren )
 
 void Timeline::Update( /*int newMarkerPos*/ )
 {
-    if ( audioplayer->IsPlaying() && !audioplayer->IsPaused()  )
-    {
-        currentTime = SDL_GetTicks();
-        if ( startPlaying )
-        {
-            // This is really bad and will definitly cause desyncs
-            lastTime = currentTime;
-            startPlaying = false;
-        }
-        unsigned int deltaTime = currentTime - lastTime;
-        double pixelpersecond = ( deltaTime / 1000.0 );
-        marker += pixelpersecond * ( zoomlvl / 60.0 );
-        //std::cout<<( ( deltaTime / 1000.0  ) * (zoomlvl / 60.0 )  )<<std::endl;
-        lastTime = currentTime;
-    }
-    else {
-         startPlaying = true;
-    }
+    marker = audioplayer->GetSongPosition() * ( zoomlvl / 60.0 );
 }

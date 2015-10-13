@@ -8,7 +8,7 @@ AudioPlayer::AudioPlayer()
 	playing = false;
 	paused = true;
 	bpm = 60;
-    pos_sec = 0.0;
+    songposition = 0.0;
 
 	if ( flags != ( result = Mix_Init( flags ) ) )
 	{
@@ -93,8 +93,8 @@ void AudioPlayer::Update()
             startPlaying = false;
         }
         unsigned int deltaTime_ms = currentTime - lastTime;
-        pos_sec += ( deltaTime_ms / 1000.0 );
-        std::cout<<pos_sec<<std::endl;
+        songposition += ( deltaTime_ms / 1000.0 );
+        //std::cout<<songposition<<std::endl;
         lastTime = currentTime;
     } else {
          startPlaying = false;

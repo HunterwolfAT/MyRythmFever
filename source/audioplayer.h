@@ -12,10 +12,8 @@ class AudioPlayer
 		int flags;
 		int bpm;
 
-    unsigned int lastTime, currentTime;
-    bool startPlaying;
-
-    double pos_sec;
+        unsigned int lastTime, currentTime;
+        bool startPlaying;
 
 		Mix_Music *song;
 
