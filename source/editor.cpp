@@ -4,9 +4,14 @@
 Editor::Editor() {
 	ren = NULL;
 	window = NULL;
-	WINDOW_WIDTH = 1280;
-	WINDOW_HEIGHT = 720;
-	interface = new Interface( WINDOW_HEIGHT, &audioplayer );
+	int base_window_width = 1280;	// Base resolution. If window size differs, scale.
+	int base_window_height = 720;
+	WINDOW_WIDTH = 1920;		// That needs to be loaded from a global config savefile
+	WINDOW_HEIGHT = 1080;		// That needs to be loaded from a global config savefile
+	screenscale_factor = WINDOW_HEIGHT / base_window_height;
+	scaled_window_width = base_window_width * screenscale_factor;
+	scaled_window_height = base_window_height * screenscale_factor;
+	interface = new Interface( scaled_window_height, &audioplayer );
 }
 
 int Editor::init( const char* songfiletitle ) {
@@ -71,9 +76,9 @@ void Editor::loop( const char* songfiletitle ) {
 				}
 			}
 
-            // Update cycle
-            audioplayer.Update();
-            interface->Update();
+			// Update cycle
+			audioplayer.Update();
+			interface->Update();
 
 			// Background Color
 			SDL_SetRenderDrawColor( ren, 160, 0, 65, 255);

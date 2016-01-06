@@ -15,7 +15,7 @@ class Timeline
 	private:
 		int width;
 		int height;
-        double marker;	// The Position of the Marker, showing where you are in the song
+        	double marker;	// The Position of the Marker, showing where you are in the song
 		int offset;	// Marker offset from left screen border to 0
 		int zoomlvl;	// show whole song or bits of it
 

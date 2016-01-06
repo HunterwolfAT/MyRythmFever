@@ -11,9 +11,9 @@ void Timeline::Init( int screenHeight, TextRenderer* textren, AudioPlayer* audio
 	marker = 0.0;
 	offset = 130;
 	zoomlvl = 300;      // Number of pixels for one Minute. Increase to zoom in, decrease to zoom out.
-    lastTime = 0;
+    	lastTime = 0;
 
-    startPlaying = true;    // Do we have to start playing?
+    	startPlaying = true;    // Do we have to start playing?
 
 	window.w = width;
 	window.h = height;
