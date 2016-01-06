@@ -16,7 +16,7 @@ class Interface{
 		TextRenderer *textren;
 
 	public:
-		Interface( int windowheight, AudioPlayer* audioplayer );
+		Interface( AudioPlayer* audioplayer );
 		~Interface();
 		void Render( SDL_Renderer* ren );
         void Update();

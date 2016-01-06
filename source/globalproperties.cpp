@@ -1,16 +1,13 @@
 #include "globalproperties.h"
 
 GlobalProperties::GlobalProperties() {
-
+	base_window_width = 1920;
+	base_window_height = 1080;
 }
 
-GlobalProperties::~GlobalProperties() {
-
-}
-
-GlobalProperties* GlobalProperties::getInstance() {
-	static GlobalProperties instance;
-	return &instance;
+GlobalProperties* GlobalProperties::get_instance() {
+		GlobalProperties instance();
+		return &instance;
 }
 
 void GlobalProperties::updateResolution( int new_base_height, int new_base_width ) {
@@ -20,3 +17,21 @@ void GlobalProperties::updateResolution( int new_base_height, int new_base_width
 	scaled_window_width = base_window_width * screenscale_factor;
 	scaled_window_height = base_window_height * screenscale_factor;
 }
+
+int GlobalProperties::get_base_window_height() {
+	return base_window_height;
+}
+
+int GlobalProperties::get_base_window_width() {
+	return base_window_width;
+}
+
+int GlobalProperties::get_scaled_window_height() {
+	return scaled_window_height;
+}
+
+int GlobalProperties::get_scaled_window_width() {
+	return scaled_window_width;
+}
+
+//globalproperties = new GlobalProperties();

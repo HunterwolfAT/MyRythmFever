@@ -2,22 +2,24 @@
 #define GLOBALPROPERTIES_H
 
 class GlobalProperties {
-
 	private:
 		GlobalProperties();
-		~GlobalProperties();
 
 		// Resolution / Graphics
-		int base_window_width = 1920;
-		int base_window_height = 1080;
+		int base_window_width;
+		int base_window_height;
 		int true_window_width;
 		int true_window_height;
 		int scaled_window_width;
 		int scaled_window_height;
-	
+
 	public:
-		static GlobalProperties *getInstance();
+		static GlobalProperties* get_instance();
 		void updateResolution( int new_base_height, int new_base_width );
+		int get_base_window_height();
+		int get_base_window_width();
+		int get_scaled_window_height();
+		int get_scaled_window_width();
 
 		int screenscale_factor;
 };

@@ -1,17 +1,13 @@
 #include "editor.h"
 
-
 Editor::Editor() {
 	ren = NULL;
 	window = NULL;
-	int base_window_width = 1280;	// Base resolution. If window size differs, scale.
-	int base_window_height = 720;
-	WINDOW_WIDTH = 1920;		// That needs to be loaded from a global config savefile
-	WINDOW_HEIGHT = 1080;		// That needs to be loaded from a global config savefile
-	screenscale_factor = WINDOW_HEIGHT / base_window_height;
-	scaled_window_width = base_window_width * screenscale_factor;
-	scaled_window_height = base_window_height * screenscale_factor;
-	interface = new Interface( scaled_window_height, &audioplayer );
+
+	globalproperties = GlobalProperties::get_instance();
+	globalproperties->updateResolution( 1920, 1080 );
+
+	interface = new Interface( &audioplayer );
 }
 
 int Editor::init( const char* songfiletitle ) {
@@ -19,8 +15,8 @@ int Editor::init( const char* songfiletitle ) {
 		"myRythmFever",
 		SDL_WINDOWPOS_UNDEFINED,
 		SDL_WINDOWPOS_UNDEFINED,
-		WINDOW_WIDTH,
-		WINDOW_HEIGHT,
+		globalproperties->get_base_window_width(),
+		globalproperties->get_base_window_height(),
 		SDL_WINDOW_SHOWN );
 
 	if ( window == NULL )

@@ -4,7 +4,7 @@
 #define SSTR( x ) dynamic_cast< std::ostringstream & >( \
         ( std::ostringstream() << std::dec << x ) ).str()
 
-void Timeline::Init( int screenHeight, TextRenderer* textren, AudioPlayer* audiopl )
+void Timeline::Init( TextRenderer* textren, AudioPlayer* audiopl )
 {
 	width = 1280;
 	height = 100;
@@ -18,7 +18,7 @@ void Timeline::Init( int screenHeight, TextRenderer* textren, AudioPlayer* audio
 	window.w = width;
 	window.h = height;
 	window.x = 0;
-	window.y = screenHeight - height;
+	window.y = globalproperties->get_scaled_window_height() - height;
 
 	testy = new I_Label( textren, 20, window.y + 15, /* audiopl->GetBPM() */ "Testing" );
 	textrenderer = textren;

@@ -9,7 +9,7 @@
 #include "textrenderer.h"
 #include "audioplayer.h"
 #include "interface_label.h"
-
+#include "globalproperties.h"
 class Timeline
 {
 	private:
@@ -31,7 +31,7 @@ class Timeline
 
 	public:
 		void Render( SDL_Renderer *ren, TextRenderer* textren );
-		void Init( int screenHeight, TextRenderer *textren, AudioPlayer *audiopl );
+		void Init( TextRenderer *textren, AudioPlayer *audiopl );
 		void Update( /*int newMarkerPos*/ );
 		//Timeline( int windowHeight );
 

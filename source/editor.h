@@ -14,13 +14,10 @@ class Editor {
 		SDL_Renderer* ren;
 		SDL_Window* window;
 		SDL_Event event;
-		int scaled_window_width;
-		int scaled_window_height;
-		int WINDOW_WIDTH;
-		int WINDOW_HEIGHT;
-		double screenscale_factor;
+
 		_Bool running;
 
+		GlobalProperties *globalproperties;
 		Interface *interface;
 		AudioPlayer audioplayer;
 
