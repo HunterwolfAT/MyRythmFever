@@ -4,7 +4,7 @@
 #CC=g++
 #CFLAGS=-lSDL2 -lSDL2_mixer
 #LDFLAGS=`sdl2-config --libs`
-#SOURCEFILES=timeline.cpp objectmanager.cpp audioplayer.cpp editor.cpp myRythmFever.cpp
+#SOURCEFILES=timeline.cpp objectmanager.cpp audioplayer.cpp editor.cpp globalproperties.cpp myRythmFever.cpp
 #EXECUTABLE=myRythmFever
 
 #SRC_DIR=source
@@ -55,5 +55,5 @@ clean:
 .PHONY: clean
 
 # Dependencies
-$(TARGET): $(BUILD_DIR)/editor.o $(BUILD_DIR)/timeline.o $(BUILD_DIR)/audioplayer.o $(BUILD_DIR)/objectmanager.o $(BUILD_DIR)/interface.o $(BUILD_DIR)/textrenderer.o $(BUILD_DIR)/interface_button.o $(BUILD_DIR)/interface_numberfield.o $(BUILD_DIR)/interface_label.o | $(BUILD_DIR)
+$(TARGET): $(BUILD_DIR)/editor.o $(BUILD_DIR)/timeline.o $(BUILD_DIR)/audioplayer.o $(BUILD_DIR)/objectmanager.o $(BUILD_DIR)/interface.o $(BUILD_DIR)/textrenderer.o $(BUILD_DIR)/interface_button.o $(BUILD_DIR)/interface_numberfield.o $(BUILD_DIR)/interface_label.o $(BUILD_DIR)/globalproperties.o | $(BUILD_DIR)
 

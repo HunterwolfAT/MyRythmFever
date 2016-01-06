@@ -7,6 +7,7 @@
 
 #include "audioplayer.h"
 #include "interface.h"
+#include "globalproperties.h"
 
 class Editor {
 	private:

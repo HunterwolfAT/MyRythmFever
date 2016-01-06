@@ -7,6 +7,7 @@
 #include "timeline.h"
 #include "textrenderer.h"
 #include "audioplayer.h"
+#include "globalproperties.h"
 
 class Interface{
 
