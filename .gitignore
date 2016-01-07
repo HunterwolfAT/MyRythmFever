@@ -8,3 +8,9 @@ myRythmFever
 # Ignore generated files
 *.o
 *.swp
+# Ignore cmake generated files
+CMakeFiles/*
+Makefile
+CMakeCache.txt
+cmake_install.cmake
+bin/CMakeFiles/*
