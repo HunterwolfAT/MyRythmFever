@@ -5,6 +5,7 @@
 #include <iostream>
 
 #include "textrenderer.h"
+#include "globalproperties.h"
 
 class I_Label
 {
@@ -18,7 +19,7 @@ class I_Label
 		I_Label( TextRenderer* textrenderer, int x, int y, const char* text );
 		~I_Label();
 
-		void Render( SDL_Renderer* ren );
+		void Render( SDL_Renderer* ren, GlobalProperties* globalproperties );
 };
 
 #endif
