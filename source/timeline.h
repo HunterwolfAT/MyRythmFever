@@ -24,6 +24,7 @@ class Timeline
 
 
 		SDL_Rect window;
+		GlobalProperties* globalproperties;
 		TextRenderer* textrenderer;
 		AudioPlayer* audioplayer;
 		I_Label* testy;
@@ -31,7 +32,7 @@ class Timeline
 
 	public:
 		void Render( SDL_Renderer *ren, TextRenderer* textren );
-		void Init( TextRenderer *textren, AudioPlayer *audiopl );
+		void Init( TextRenderer *textren, AudioPlayer *audiopl, GlobalProperties *glprop );
 		void Update( /*int newMarkerPos*/ );
 		//Timeline( int windowHeight );
 

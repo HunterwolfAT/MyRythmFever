@@ -17,7 +17,7 @@ class Editor {
 
 		_Bool running;
 
-		GlobalProperties *globalproperties;
+		GlobalProperties globalproperties;
 		Interface *interface;
 		AudioPlayer audioplayer;
 

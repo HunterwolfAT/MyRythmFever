@@ -4,8 +4,10 @@
 #define SSTR( x ) dynamic_cast< std::ostringstream & >( \
         ( std::ostringstream() << std::dec << x ) ).str()
 
-void Timeline::Init( TextRenderer* textren, AudioPlayer* audiopl )
+void Timeline::Init( TextRenderer* textren, AudioPlayer* audiopl, GlobalProperties* glprop )
 {
+	globalproperties = glprop;
+
 	width = 1280;
 	height = 100;
 	marker = 0.0;

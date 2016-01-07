@@ -5,11 +5,6 @@ GlobalProperties::GlobalProperties() {
 	base_window_height = 1080;
 }
 
-GlobalProperties* GlobalProperties::get_instance() {
-		GlobalProperties instance();
-		return &instance;
-}
-
 void GlobalProperties::updateResolution( int new_base_height, int new_base_width ) {
 	true_window_width = new_base_width;
 	true_window_height = new_base_height;

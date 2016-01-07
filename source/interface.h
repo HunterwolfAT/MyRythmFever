@@ -13,10 +13,11 @@ class Interface{
 
 	private:
 		Timeline timeline;
+		GlobalProperties* globalprop;
 		TextRenderer *textren;
 
 	public:
-		Interface( AudioPlayer* audioplayer );
+		Interface( GlobalProperties* glprop, AudioPlayer* audioplayer );
 		~Interface();
 		void Render( SDL_Renderer* ren );
         void Update();

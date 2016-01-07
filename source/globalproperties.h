@@ -3,7 +3,6 @@
 
 class GlobalProperties {
 	private:
-		GlobalProperties();
 
 		// Resolution / Graphics
 		int base_window_width;
@@ -14,7 +13,7 @@ class GlobalProperties {
 		int scaled_window_height;
 
 	public:
-		static GlobalProperties* get_instance();
+		GlobalProperties();
 		void updateResolution( int new_base_height, int new_base_width );
 		int get_base_window_height();
 		int get_base_window_width();

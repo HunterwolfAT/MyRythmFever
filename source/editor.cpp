@@ -4,10 +4,9 @@ Editor::Editor() {
 	ren = NULL;
 	window = NULL;
 
-	globalproperties = GlobalProperties::get_instance();
-	globalproperties->updateResolution( 1920, 1080 );
+	globalproperties.updateResolution( 1920, 1080 );
 
-	interface = new Interface( &audioplayer );
+	interface = new Interface( &globalproperties, &audioplayer );
 }
 
 int Editor::init( const char* songfiletitle ) {
@@ -15,8 +14,8 @@ int Editor::init( const char* songfiletitle ) {
 		"myRythmFever",
 		SDL_WINDOWPOS_UNDEFINED,
 		SDL_WINDOWPOS_UNDEFINED,
-		globalproperties->get_base_window_width(),
-		globalproperties->get_base_window_height(),
+		globalproperties.get_base_window_width(),
+		globalproperties.get_base_window_height(),
 		SDL_WINDOW_SHOWN );
 
 	if ( window == NULL )
